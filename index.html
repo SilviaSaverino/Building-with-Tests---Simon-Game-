@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Document</title>
+    <title>Simon - Memory Game</title>
 </head>
 <body>
-    <h2>Ciao</h2>
+    <div class="container">
+        <h1>Simon</h1>
+        <h2>Memory Game</h2>
+    </div>
+    <div class="container">
+        <div data-listener="false" class="circle circle1" id="button1"></div>
+        <div data-listener="false" class="circle circle2" id="button2"></div>
+        <div data-listener="false" class="circle circle3" id="button3"></div>
+        <div data-listener="false" class="circle circle4" id="button4"></div>
+        <div class="scorebox" id="score">0</div>
+        <button class="button" onclick="newGame()">new game</button>
+    </div>
+    <script src="scripts/game.js"></script>
 </body>
 </html>
