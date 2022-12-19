@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { game } = require("../game");
+const { game, newGame, showScore } = require("../game");
 
 
 beforeAll(() => {
@@ -30,3 +30,36 @@ describe("game object contains correct keys", () => {
         expect(game.choices).toEqual(["button1", "button2", "button3", "button4"]);
     });
 });
+
+/*testing our newGame function -> it should :
+1) Reset the score to zero
+2) Clear the playerMoves array
+3) Clear the currentGame array */
+
+describe("newGame works correctly", () => {
+   
+    beforeAll(() => {
+         //setting up the game with some fake values
+        game.score = 42;
+        //we are going to write some fake datas also the 2) and 3)
+        game.playerMoves = ['button1', 'button2'];
+        game.currentGame = ['button3', 'button4'];
+        document.getElementById('score').innerText = '42'; //adding this to check if newGame will reset it to zero
+        newGame();
+    });
+    test("should set the game score to zero", () => {
+        expect(game.score).toEqual(0);
+    });
+    test("should clear playerMoves array", () => {
+        expect(game.playerMoves.length).toBe(0);
+    });
+    test("should clear the computer sequence array", () => {
+        expect(game.currentGame.length).toBe(0);
+    });
+    test("should display 0 for the element with id of score", () => {
+        expect(document.getElementById('score').innerText).toEqual(0);
+    });
+});
+
+/*the newGame function resets everything, but it doesn't start a new game.
+We must create new functions! -> showScore and addTurn*/
