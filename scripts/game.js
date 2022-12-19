@@ -30,4 +30,12 @@ function addTurn() {
    // showTurns();
 }
 
-module.exports = { game, newGame, showScore, addTurn };
+
+function lightsOn(circ) {
+    document.getElementById(circ).classList.add('light');
+    setTimeout(() => {
+        document.getElementById(cird).classList.remove('light');
+    }, 400);
+}
+
+module.exports = { game, newGame, showScore, addTurn, lightsOn };
